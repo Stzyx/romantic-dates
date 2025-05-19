@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Romantic A-Z Date Adventures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffd6e8, #ffe9ec);
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      color: #6b2b57;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: #d81b60;
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    li {
+      background: white;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: 0.3s;
+    }
+    li:hover {
+      transform: scale(1.01);
+    }
+    li.checked {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    .letter {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      color: #c2185b;
+    }
+    button {
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 1.5rem;
+      margin: 1.5rem auto;
+      display: block;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+  <h1>💕 A–Z Romantic Date Adventures</h1>
+  <button onclick="surpriseMe()">💌 Surprise Me With a Date</button>
+  <ul id="date-list"></ul>
+
+  <script>
+    const dates = [
+      { letter: 'A', idea: 'Art & crafts outside' },
+      { letter: 'B', idea: 'Berry or flower picking' },
+      { letter: 'C', idea: 'Camping for a weekend' },
+      { letter: 'D', idea: 'Drive-in movie night' },
+      { letter: 'E', idea: 'Explore a local farmer’s market' },
+      { letter: 'F', idea: 'Fishing adventure' },
+      { letter: 'G', idea: 'Garden together (flowers or veggies)' },
+      { letter: 'H', idea: 'Have a fire & roast s’mores' },
+      { letter: 'I', idea: 'Ice cream date at a new place' },
+      { letter: 'J', idea: 'Jam out at a concert or music festival' },
+      { letter: 'K', idea: 'Kayaking or paddleboarding together' },
+      { letter: 'L', idea: 'Love letter exchange + board games in the park' },
+      { letter: 'M', idea: 'Mini golf or golf day' },
+      { letter: 'N', idea: 'Nature hike to a waterfall or mountain' },
+      { letter: 'O', idea: 'Outside backyard movie night' },
+      { letter: 'P', idea: 'Picnic at a cute scenic spot' },
+      { letter: 'Q', idea: 'Quiet sunrise coffee date' },
+      { letter: 'R', idea: 'Romantic photoshoot with a photographer' },
+      { letter: 'S', idea: 'Stargazing night adventure' },
+      { letter: 'T', idea: 'Trip to the beach for the day' },
+      { letter: 'U', idea: 'Unwind with cow or puppy yoga' },
+      { letter: 'V', idea: 'Visit the zoo together' },
+      { letter: 'W', idea: 'Walk or bike ride through your favorite trail' },
+      { letter: 'X', idea: 'eXtra silly carnival or amusement park date' },
+      { letter: 'Y', idea: 'Yoga in the park' },
+      { letter: 'Z', idea: 'Zoo or Zucchini garden visit (farmer’s market)' }
+    ];
+
+    const list = document.getElementById('date-list');
+
+    function renderList() {
+      list.innerHTML = '';
+      dates.forEach(({ letter, idea }) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="letter">${letter}</span> ${idea}`;
+        li.onclick = () => li.classList.toggle('checked');
+        list.appendChild(li);
+      });
+    }
+
+    function surpriseMe() {
+      const random = dates[Math.floor(Math.random() * dates.length)];
+      alert(`${random.letter}: ${random.idea}`);
+    }
+
+    renderList();
+  </script>
+</body>
+</html>
